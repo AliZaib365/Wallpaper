@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import WallpaperGrid from '../../components/WallpaperGrid';
 
 const AllWallpapersPage = () => {
   const [wallpapers, setWallpapers] = useState([]);
@@ -42,18 +43,9 @@ const AllWallpapersPage = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-semibold mb-8 text-center">All Wallpapers</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {wallpapers.map((wallpaper, index) => (
-          <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-md">
-            <video
-              src={wallpaper.media}
-              controls
-              className="w-full h-56 object-cover"
-              preload="metadata"
-            />
-          </div>
-        ))}
-      </div>
+      
+      {/* Wallpaper Grid Component */}
+      <WallpaperGrid wallpapers={wallpapers} />
     </div>
   );
 };
